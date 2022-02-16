@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: rgb(3, 3, 15);
+        }
+
+        form {
+            background-color: rgba(119, 136, 153, .5);
+            padding: 2rem;
+            height: 400px;
+            width: 250px;
+            border-radius: 5px;
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            row-gap: 1em;
+        }
+
+        form label {
+            font-size: 1.75rem;
+            color: #fff;
+        }
+
+        input[type="text"],
+        input[type="password"]{
+            width: 100%;
+            height: 30px;
+            padding: .25em 0;
+            border-radius: 3px;
+            font-weight: 700;
+            border: none;
+            text-align: center;
+            margin-top: .75em;
+            background-color: rgb(222, 214, 238);
+        }
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="submit"]:focus{
+            outline: 3px solid rgb(2, 47, 83);
+            
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            margin-top: 1.25rem;
+            align-self: flex-end;
+            background-color: rgb(158, 119, 236);
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: .75em 1.25em;
+        }
+    </style>
+</head>
+<body>
+    <form action="">
+        <label for="name">username:
+            <input type="text" id="user" value="">
+        </label>
+
+        <label for="pass">password:
+            <input type="password" id="pass" value="">
+        </label>
+        <input type="submit" class="btn" value="submit">
+    </form>
+
+    <script>
+        const credentials = {
+            'username': 'esboy',
+            'password': 'esb0y123'
+        }
+
+       let getUser = document.querySelector('#user');
+       let getPass = document.querySelector('#pass');
+
+       document.querySelector('.btn').addEventListener('click', function() {
+
+           let username = getUser.value;
+           let password = getPass.value;
+
+            
+           if (username === '' || password === ''){
+               alert('fill in the required field')
+           }
+           else{
+               alert(isValid(username, password))
+           }
+
+    }
+       );
+
+        //  check if user input matches the given  cridentials, return 'welcome esboy' if True, otherwise return 'incorrect username or password'
+       function isValid(user, pass){
+           return (user === credentials.username && pass === credentials.password) ? 'welcome esboy' : 'incorrect username or password';
+       }
+    </script>
+</body>
+</html>
